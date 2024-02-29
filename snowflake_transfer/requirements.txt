@@ -5,3 +5,4 @@ sqlalchemy
 snowflake-sqlalchemy
 snowflake-connector-python[pandas]
 pathlib
+snowflake

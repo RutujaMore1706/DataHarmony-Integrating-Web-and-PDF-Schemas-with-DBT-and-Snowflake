@@ -58,7 +58,7 @@ if __name__ == "__main__":
 
     # Relative paths to CSV files, assuming this script is located correctly in your project structure
     csv_files = {
-        'cleaned_extracted': project_root/ 'file'/ 'cleaned_extracted.csv',
+        'cleaned_extracted': project_root/ 'Updated_CSV'/ 'cleaned_extracted.csv',
         'grobid_content_2024_l1_topics_combined_2': project_root/ 'grobid_step/parsed_into_schema/content/csv' / 'grobid_content_2024_l1_topics_combined_2.csv',
         'grobid_content_2024_l2_topics_combined_2': project_root/ 'grobid_step/parsed_into_schema/content/csv' / 'grobid_content_2024_l2_topics_combined_2.csv',
         'grobid_content_2024_l3_topics_combined_2': project_root/ 'grobid_step/parsed_into_schema/content/csv' / 'grobid_content_2024_l3_topics_combined_2.csv',
