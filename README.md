@@ -6,9 +6,6 @@ Development and Validation of Data Management Schemas for Web and PDF Content An
 
 
 
-
-
-
 ## Problem Statement
 
 In the evolving landscape of data management and analysis, efficiently organizing, validating, and transforming data from diverse sources like webpages and PDF documents into actionable insights remains a significant challenge. This project aims to design a comprehensive data management system that addresses these challenges through the creation of structured Python classes for webpage URLs and PDF content. The system will leverage Pydantic for schema validation to ensure data integrity and cleanliness. Furthermore, it will explore the integration of DBT (Data Build Tool) with Snowflake for sophisticated data transformation workflows, enabling the generation of summarized data tables for enhanced analytical purposes. This approach seeks to not only streamline data validation processes but also optimize data analysis and reporting capabilities, catering to potential applications ranging from academic research to business intelligence. The project will include rigorous testing to validate the functionality and reliability of the designed schemas and transformation workflows, setting a foundation for scalable and efficient data management strategies.
@@ -77,71 +74,7 @@ In the evolving landscape of data management and analysis, efficiently organizin
 3. **Git:** Install Git version control system for managing project codebase.
 
    - Download and install Git from the official website: [Git](https://git-scm.com/)
-
-To run the application locally from scratch, follow these steps:
-
-1. **Clone the Repository**: Clone the repository onto your local machine.
-
-   ```bash
-   git clone https://github.com/BigDataIA-Spring2024-Sec1-Team4/Assignment3
-   ```
-
-2. **Create a Virtual Environment**: Set up a virtual environment to isolate project dependencies.
-
-   ```bash
-   python -m venv venv
-   ```
-
-3. **Activate the Virtual Environment**: Activate the virtual environment.
-
-   - **Windows**:
-
-     ```bash
-     venv\Scripts\activate
-     ```
-
-   - **Unix or MacOS**:
-
-     ```bash
-     source venv/bin/activate
-     ```
-     
-4. **Host Grobid Server**: Open Docker Desktop and host the Grobid server. (Run this in a separate terminal)
-
-   ```bash
-    docker run -t --rm -p 8070:8070 lfoppiano/grobid:0.8.0
-   ```
-
-5. **Run the Execute Script**: Execute the `execute_commands.py` python script to run the application. This step automates the process and runs all scripts one after the other (Remember to add your .env files)
-
-   ```bash
-   python execute_commands.py
-   ```
-
-6. **Git Clone Astro**: This is required to run DBT Cloud on Airflow
-
-   ```bash
-   brew install astro
-   git clone https://github.com/sungchun12/airflow-dbt-cloud.git
-   ```
-7. **Transfer the dag file into Airflow Directory**: Transfer dag script into the dag folder created through git clone
-
-   ```bash
-   python file_move.py
-   ```
-8. **Run Astro Airflow to run DBT Cloud jobs**: This will run both development and production jobs on DBT Cloud through Airflow. Don't forget to add DBT Cloud API in Airflow connection (conn_id = dbt_cloud)
-
-   ```bash
-   cd airflow-dbt-cloud
-   astro dev start
-   ```
-
-Ensure that all software prerequisites are installed and configured properly before starting the project to avoid any issues during development and execution.
- 
-```
-https://imgur.com/a/iK066HY
-```
-
+  
  
 ## Project Structure
 
@@ -241,17 +174,16 @@ Assignment3
 
 ## Architectural Diagram
 
+![image](https://github.com/BigDataIA-Spring2024-Sec1-Team4/Assignment3/assets/114356265/bcd1c1a6-1afb-4de2-a49c-c76ba75b202c)
 
-![Diagram Description](./diagrams/diagram.png)
+
+
 ## How to run Application locally
-
-
-To run the application locally from scratch, follow these steps:
 
 1. **Clone the Repository**: Clone the repository onto your local machine.
 
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/BigDataIA-Spring2024-Sec1-Team4/Assignment3
    ```
 
 2. **Create a Virtual Environment**: Set up a virtual environment to isolate project dependencies.
@@ -273,18 +205,44 @@ To run the application locally from scratch, follow these steps:
      ```bash
      source venv/bin/activate
      ```
-
-4. **Install Requirements**: Install the required dependencies listed in `requirements.txt`.
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-5. **Run the Notebook Script**: Execute the `run_notebook.sh` shell script to run the application.
+     
+4. **Host Grobid Server**: Open Docker Desktop and host the Grobid server. (Run this in a separate terminal)
 
    ```bash
-   bash run_notebook.sh
+    docker run -t --rm -p 8070:8070 lfoppiano/grobid:0.8.0
    ```
+
+5. **Run the Execute Script**: Execute the `execute_commands.py` python script to run the application. This step automates the process and runs all scripts one after the other (Remember to add your .env files)
+
+   ```bash
+   python execute_commands.py
+   ```
+
+6. **Git Clone Astro**: This is required to run DBT Cloud on Airflow
+
+   ```bash
+   brew install astro
+   git clone https://github.com/sungchun12/airflow-dbt-cloud.git
+   ```
+7. **Transfer the dag file into Airflow Directory**: Transfer dag script into the dag folder created through git clone
+
+   ```bash
+   python file_move.py
+   ```
+8. **Run Astro Airflow to run DBT Cloud jobs**: This will run both development and production jobs on DBT Cloud through Airflow. Don't forget to add DBT Cloud API in Airflow connection (conn_id = dbt_cloud)
+
+   ```bash
+   cd airflow-dbt-cloud
+   astro dev start
+   ```
+
+Ensure that all software prerequisites are installed and configured properly before starting the project to avoid any issues during development and execution.
+ 
+Below is the execution of DBT Cloud jobs through Airflow:
+
+![image](https://github.com/BigDataIA-Spring2024-Sec1-Team4/Assignment3/assets/114356265/d99646bf-ad7f-4438-be83-62a0865db57d)
+
+
 
 By following these steps, you will be able to run the application locally from scratch. Ensure that Docker Desktop is installed and running before hosting the Grobid server.
 ## Team Information and Contribution 
