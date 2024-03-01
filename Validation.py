@@ -1,4 +1,5 @@
-from pydantic import BaseModel, HttpUrl, Field, field_validator, ValidationError, validator, ValidationInfo
+from pydantic import BaseModel, HttpUrl, Field, ValidationError, validator, ValidationInfo
+from pydantic.functional_validators import field_validator
 from pathlib import Path
 import re
 import csv

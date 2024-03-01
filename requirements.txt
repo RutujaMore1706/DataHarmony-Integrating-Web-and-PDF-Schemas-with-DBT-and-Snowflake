@@ -5,4 +5,5 @@ langchain_community
 requests
 requests_html
 bs4
+pandas
 pyppeteer

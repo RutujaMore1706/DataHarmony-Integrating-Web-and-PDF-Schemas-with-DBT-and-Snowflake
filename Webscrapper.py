@@ -71,7 +71,7 @@ def webscrape():
     all_links = []
     for base_url in base_urls:
         response = session.get(base_url)
-        response.html.render(wait=5, sleep=5)
+        response.html.render(wait=20, sleep=5)
         all_links.extend(scrape_links(response.html))
 
     # Now process each link and write details to the CSV
