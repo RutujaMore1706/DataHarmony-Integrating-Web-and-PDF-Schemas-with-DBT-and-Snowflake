@@ -1,5 +1,5 @@
 
-## Project Title
+## Assignment 3
 
 Development and Validation of Data Management Schemas for Web and PDF Content Analysis With DBT and Snowflake Integration
 
@@ -20,27 +20,29 @@ In the evolving landscape of data management and analysis, efficiently organizin
 
 ## Part 1
 
-    1. Design and implement the URLClass in Python to represent the schema for the Assignment 2 (Part 1) CFA webpages, ensuring adherence to defined guidelines.
-    2. Develop two PDFClasses, MetaDataPDFClass, and ContentPDFClass, in Python to represent the schema for the Grobid output.
-    3. Utilize the provided schema for Part 1 and create schemas for Part 2 (PDFClass).
-    4. Implement data and schema validation using Pydantic 2, ensuring the integrity and cleanliness of the data.
-    5. Generate "clean" CSV files from validated data.
-    6. Construct 5 pass and 5 fail test cases for each of the three classes using Pytest to demonstrate validation success and failure scenarios.
-    7. Utilize existing code structures such as Grobid data loader and URL data loader classes as starter code or refer to Grobid Data classes example.
-    8. Prepare for Part 2 using DBT by understanding the documentation and redoing the tutorial with the "clean CSV" files created in Part 1.
+1. Design and implement the URLClass in Python to represent the schema for the Assignment 2 (Part 1) CFA webpages, ensuring adherence to defined guidelines.
+2. Develop two PDFClasses, MetaDataPDFClass, and ContentPDFClass, in Python to represent the schema for the Grobid output.
+3. Utilize the provided schema for Part 1 and create schemas for Part 2 (PDFClass).
+4. Implement data and schema validation using Pydantic 2, ensuring the integrity and cleanliness of the data.
+5. Generate "clean" CSV files from validated data.
+6. Construct 5 pass and 5 fail test cases for each of the three classes using Pytest to demonstrate validation success and failure scenarios.
+7. Utilize existing code structures such as Grobid data loader and URL data loader classes as starter code or refer to Grobid Data classes example.
+8. Prepare for Part 2 using DBT by understanding the documentation and redoing the tutorial with the "clean CSV" files created in Part 1.
 
 ## Part 2:
 
-    1. Load the clean data from Part 1 into Snowflake.
-    2. Utilize DBT to create transformation workflows.
-    3. Develop a summary table with the schema: Level, Topic, Year, Number of articles, Min Length (Summary), Max Length (Summary), Min Length (Learning outcomes), Max Length (Learning outcomes).
-    4. Design the summary table model in a flexible and efficient manner.
-    5. Materialize the summary table into a new table within Snowflake.
-    6. Write tests to validate the new columns and ensure data accuracy.
-    7. Document the model thoroughly for future reference and understanding.
-    8. Commit and deploy the model, following best practices outlined in DBT documentation.
-    9. Establish separate Test and Production environments, including corresponding databases/tables in Snowflake.
-    10. Considerations for Test and Production environments include data isolation, access controls, version control, and deployment strategies.
+1. Load the clean data from Part 1 into Snowflake.
+2. Utilize DBT Cloud to create transformation workflows.
+3. Develop a summary table with the schema: Level, Topic, Year, Number of articles, Min Length (Summary), Max Length (Summary), Min Length (Learning outcomes), Max Length (Learning outcomes).
+4. Design the summary table model in a flexible and efficient manner.
+5. Materialize the summary table into a new table within Snowflake.
+6. Write tests to validate the new columns and ensure data accuracy.
+7. Document the model thoroughly for future reference and understanding.
+8. Commit and deploy the model, following best practices outlined in DBT documentation.
+9. Establish separate Test and Production environments, including corresponding databases/tables in Snowflake.
+10. Considerations for Test and Production environments include data isolation, access controls, version control, and deployment strategies.
+11. Automate the process using Airflow
+    
 ## Codelab
 
 [![codelabs](https://img.shields.io/badge/codelabs-4285F4?style=for-the-badge&logo=codelabs&logoColor=white)](https://codelabs-preview.appspot.com/?file_id=1H-NznhIh2AqN8jsjyq399n_NODPnIhcgUE6CWyrsULI#5)
@@ -70,54 +72,75 @@ In the evolving landscape of data management and analysis, efficiently organizin
 
 2. **Snowflake Account:** Sign up for a Snowflake account or gain access to an existing account with appropriate permissions.
 
-3. **DBT (Data Build Tool):** Install DBT for data transformation and modeling.
 
-   ```
-   pip install dbt
-   ```
 
-6. **Git:** Install Git version control system for managing project codebase.
+3. **Git:** Install Git version control system for managing project codebase.
 
    - Download and install Git from the official website: [Git](https://git-scm.com/)
 
-**Specific Software Prerequisites for Part 1:**
+To run the application locally from scratch, follow these steps:
 
-1. **PDF Data Extraction Tools:** Depending on the chosen method for extracting metadata and content from PDF files, you might need additional libraries or tools such as PyPDF2, pdfplumber, or others. Install the relevant libraries as needed.
+1. **Clone the Repository**: Clone the repository onto your local machine.
 
-   ```
-   pip install PyPDF2
-   ```
-
-**Specific Software Prerequisites for Part 2:**
-
-1. **Snowflake Client:** Install Snowflake Python client for connecting to Snowflake from Python scripts.
-
-   ```
-   pip install snowflake-connector-python
+   ```bash
+   git clone https://github.com/BigDataIA-Spring2024-Sec1-Team4/Assignment3
    ```
 
-2. **Snowflake CLI (Command Line Interface):** Install Snowflake CLI for running SQL commands and managing Snowflake resources from the command line.
+2. **Create a Virtual Environment**: Set up a virtual environment to isolate project dependencies.
 
-   - Download and install Snowflake CLI from the official Snowflake documentation: [Snowflake CLI](https://docs.snowflake.com/en/user-guide/snowsql-install-config.html)
+   ```bash
+   python -m venv venv
+   ```
 
-3. **DBT Setup:** Configure DBT to connect to Snowflake by specifying connection details in the profiles.yml file.
+3. **Activate the Virtual Environment**: Activate the virtual environment.
 
-4. **Test Environment Setup:** Set up separate test and production environments within Snowflake as per project requirements.
+   - **Windows**:
+
+     ```bash
+     venv\Scripts\activate
+     ```
+
+   - **Unix or MacOS**:
+
+     ```bash
+     source venv/bin/activate
+     ```
+     
+4. **Host Grobid Server**: Open Docker Desktop and host the Grobid server. (Run this in a separate terminal)
+
+   ```bash
+    docker run -t --rm -p 8070:8070 lfoppiano/grobid:0.8.0
+   ```
+
+5. **Run the Execute Script**: Execute the `execute_commands.py` python script to run the application. This step automates the process and runs all scripts one after the other (Remember to add your .env files)
+
+   ```bash
+   python execute_commands.py
+   ```
+
+6. **Git Clone Astro**: This is required to run DBT Cloud on Airflow
+
+   ```bash
+   brew install astro
+   git clone https://github.com/sungchun12/airflow-dbt-cloud.git
+   ```
+7. **Transfer the dag file into Airflow Directory**: Transfer dag script into the dag folder created through git clone
+
+   ```bash
+   python file_move.py
+   ```
+8. **Run Astro Airflow to run DBT Cloud jobs**: This will run both development and production jobs on DBT Cloud through Airflow. Don't forget to add DBT Cloud API in Airflow connection (conn_id = dbt_cloud)
+
+   ```bash
+   cd airflow-dbt-cloud
+   astro dev start
+   ```
 
 Ensure that all software prerequisites are installed and configured properly before starting the project to avoid any issues during development and execution.
  
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
+```
+https://imgur.com/a/iK066HY
+```
 
  
 ## Project Structure
