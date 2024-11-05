@@ -243,13 +243,5 @@ Below is the execution of DBT Cloud jobs through Airflow:
 
 ![image](https://github.com/BigDataIA-Spring2024-Sec1-Team4/Assignment3/assets/114356265/d99646bf-ad7f-4438-be83-62a0865db57d)
 
-
-
 By following these steps, you will be able to run the application locally from scratch. Ensure that Docker Desktop is installed and running before hosting the Grobid server.
-## Team Information and Contribution 
-
-Name           | NUID          |
----------------|---------------|
-Anirudh Joshi  | 002991365     |      
-Nitant Jatale  | 002776669     |      
-Rutuja More    | 00272782      |      
+  
